@@ -85,6 +85,9 @@ use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerAppRequest;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerAppResponse;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerAppVersionHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerAppVersionResponse;
+use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerWebAppsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerWebAppsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListInnerWebAppsResponse;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListPendingPublishAuditsHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListPendingPublishAuditsRequest;
 use AlibabaCloud\SDK\Dingtalk\Vmicro_app_1_0\Models\ListPendingPublishAuditsResponse;
@@ -2118,6 +2121,69 @@ class Dingtalk extends OpenApiClient
         $headers = new ListInnerAppVersionHeaders([]);
 
         return $this->listInnerAppVersionWithOptions($agentId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取企业内部网页应用列表
+     *  *
+     * @param ListInnerWebAppsRequest $request ListInnerWebAppsRequest
+     * @param ListInnerWebAppsHeaders $headers ListInnerWebAppsHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInnerWebAppsResponse ListInnerWebAppsResponse
+     */
+    public function listInnerWebAppsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['app_type'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInnerWebApps',
+            'version' => 'microApp_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/microApp/innerWebApps',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInnerWebAppsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取企业内部网页应用列表
+     *  *
+     * @param ListInnerWebAppsRequest $request ListInnerWebAppsRequest
+     *
+     * @return ListInnerWebAppsResponse ListInnerWebAppsResponse
+     */
+    public function listInnerWebApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListInnerWebAppsHeaders([]);
+
+        return $this->listInnerWebAppsWithOptions($request, $headers, $runtime);
     }
 
     /**

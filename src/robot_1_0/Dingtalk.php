@@ -38,6 +38,9 @@ use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\ExecuteRobotAiSkillResponse;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GetBotListInGroupHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GetBotListInGroupRequest;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GetBotListInGroupResponse;
+use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GroupBotWebhookQueryHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GroupBotWebhookQueryRequest;
+use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\GroupBotWebhookQueryResponse;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\ManageSingleChatRobotStatusHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\ManageSingleChatRobotStatusRequest;
 use AlibabaCloud\SDK\Dingtalk\Vrobot_1_0\Models\ManageSingleChatRobotStatusResponse;
@@ -791,6 +794,63 @@ class Dingtalk extends OpenApiClient
         $headers = new GetBotListInGroupHeaders([]);
 
         return $this->getBotListInGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取群中机器人webhook信息
+     *  *
+     * @param GroupBotWebhookQueryRequest $request GroupBotWebhookQueryRequest
+     * @param GroupBotWebhookQueryHeaders $headers GroupBotWebhookQueryHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GroupBotWebhookQueryResponse GroupBotWebhookQueryResponse
+     */
+    public function groupBotWebhookQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['openConversationId'] = $request->openConversationId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GroupBotWebhookQuery',
+            'version' => 'robot_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/robot/groups/webhooks/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GroupBotWebhookQueryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取群中机器人webhook信息
+     *  *
+     * @param GroupBotWebhookQueryRequest $request GroupBotWebhookQueryRequest
+     *
+     * @return GroupBotWebhookQueryResponse GroupBotWebhookQueryResponse
+     */
+    public function groupBotWebhookQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GroupBotWebhookQueryHeaders([]);
+
+        return $this->groupBotWebhookQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

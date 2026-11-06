@@ -2713,6 +2713,9 @@ class Dingtalk extends OpenApiClient
         if (!Utils::isUnset($request->lastWorkDate)) {
             $body['lastWorkDate'] = $request->lastWorkDate;
         }
+        if (!Utils::isUnset($request->minutesHandoverUserId)) {
+            $body['minutesHandoverUserId'] = $request->minutesHandoverUserId;
+        }
         if (!Utils::isUnset($request->optUserId)) {
             $body['optUserId'] = $request->optUserId;
         }

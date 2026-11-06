@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dingtalk\Vminutes_1_0\Models;
 
 use AlibabaCloud\SDK\Dingtalk\Vminutes_1_0\Models\UpdatePermissionResponseBody\failMemberInfoList;
 use AlibabaCloud\SDK\Dingtalk\Vminutes_1_0\Models\UpdatePermissionResponseBody\memberPermissionOperationResults;
+use AlibabaCloud\SDK\Dingtalk\Vminutes_1_0\Models\UpdatePermissionResponseBody\resetResult;
 use AlibabaCloud\SDK\Dingtalk\Vminutes_1_0\Models\UpdatePermissionResponseBody\shareScopeResult;
 use AlibabaCloud\Tea\Model;
 
@@ -39,6 +40,11 @@ class UpdatePermissionResponseBody extends Model
     public $partialSuccess;
 
     /**
+     * @var resetResult
+     */
+    public $resetResult;
+
+    /**
      * @var shareScopeResult
      */
     public $shareScopeResult;
@@ -53,6 +59,7 @@ class UpdatePermissionResponseBody extends Model
         'memberPermissionOperationResults' => 'memberPermissionOperationResults',
         'modelVersion' => 'modelVersion',
         'partialSuccess' => 'partialSuccess',
+        'resetResult' => 'resetResult',
         'shareScopeResult' => 'shareScopeResult',
         'shareScopeVersion' => 'shareScopeVersion',
     ];
@@ -88,6 +95,9 @@ class UpdatePermissionResponseBody extends Model
         }
         if (null !== $this->partialSuccess) {
             $res['partialSuccess'] = $this->partialSuccess;
+        }
+        if (null !== $this->resetResult) {
+            $res['resetResult'] = null !== $this->resetResult ? $this->resetResult->toMap() : null;
         }
         if (null !== $this->shareScopeResult) {
             $res['shareScopeResult'] = null !== $this->shareScopeResult ? $this->shareScopeResult->toMap() : null;
@@ -133,6 +143,9 @@ class UpdatePermissionResponseBody extends Model
         }
         if (isset($map['partialSuccess'])) {
             $model->partialSuccess = $map['partialSuccess'];
+        }
+        if (isset($map['resetResult'])) {
+            $model->resetResult = resetResult::fromMap($map['resetResult']);
         }
         if (isset($map['shareScopeResult'])) {
             $model->shareScopeResult = shareScopeResult::fromMap($map['shareScopeResult']);

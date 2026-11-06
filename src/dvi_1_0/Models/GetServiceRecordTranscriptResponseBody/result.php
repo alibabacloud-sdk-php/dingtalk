@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetServiceRecordTranscriptResponseBody;
 
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetServiceRecordTranscriptResponseBody\result\audionText;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetServiceRecordTranscriptResponseBody\result\enhanceChatContent;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetServiceRecordTranscriptResponseBody\result\speaker;
 use AlibabaCloud\Tea\Model;
 
@@ -16,11 +17,17 @@ class result extends Model
     public $audionText;
 
     /**
+     * @var enhanceChatContent
+     */
+    public $enhanceChatContent;
+
+    /**
      * @var speaker
      */
     public $speaker;
     protected $_name = [
         'audionText' => 'audionText',
+        'enhanceChatContent' => 'enhanceChatContent',
         'speaker' => 'speaker',
     ];
 
@@ -31,6 +38,9 @@ class result extends Model
         $res = [];
         if (null !== $this->audionText) {
             $res['audionText'] = null !== $this->audionText ? $this->audionText->toMap() : null;
+        }
+        if (null !== $this->enhanceChatContent) {
+            $res['enhanceChatContent'] = null !== $this->enhanceChatContent ? $this->enhanceChatContent->toMap() : null;
         }
         if (null !== $this->speaker) {
             $res['speaker'] = null !== $this->speaker ? $this->speaker->toMap() : null;
@@ -49,6 +59,9 @@ class result extends Model
         $model = new self();
         if (isset($map['audionText'])) {
             $model->audionText = audionText::fromMap($map['audionText']);
+        }
+        if (isset($map['enhanceChatContent'])) {
+            $model->enhanceChatContent = enhanceChatContent::fromMap($map['enhanceChatContent']);
         }
         if (isset($map['speaker'])) {
             $model->speaker = speaker::fromMap($map['speaker']);

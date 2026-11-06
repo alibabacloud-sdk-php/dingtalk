@@ -15,18 +15,27 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BatchUpdateDeviceCutCustomerSwitch
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BatchUpdateDeviceCutCustomerSwitchRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BatchUpdateDeviceCutCustomerSwitchResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BatchUpdateDeviceCutCustomerSwitchShrinkRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BindKanjianRecordTaskHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BindKanjianRecordTaskRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\BindKanjianRecordTaskResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ControlRecordingHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ControlRecordingRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ControlRecordingResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateAsrTranscriptionHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateAsrTranscriptionRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateAsrTranscriptionResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateKanjianTaskHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateKanjianTaskRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateKanjianTaskResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateRecordingScheduleHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateRecordingScheduleRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateRecordingScheduleResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateTeamHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateTeamRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\CreateTeamResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\DeleteKanjianTaskHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\DeleteKanjianTaskRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\DeleteKanjianTaskResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\DeleteRecordingScheduleHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\DeleteRecordingScheduleResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetA1DeviceBindingHeaders;
@@ -50,6 +59,15 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetCustomerInfoResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetCustomerInsightHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetCustomerInsightRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetCustomerInsightResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianDeviceHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianDeviceRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianDeviceResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianRecordHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianRecordRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianRecordResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianTaskHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianTaskRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetKanjianTaskResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetRecordingScheduleHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetRecordingScheduleResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\GetServiceChapterSummaryHeaders;
@@ -88,6 +106,15 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListDeviceRecordingDurationRequest
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListDeviceRecordingDurationResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListDeviceRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListDeviceResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianDevicesHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianDevicesRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianDevicesResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianRecordsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianRecordsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianRecordsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianTasksHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianTasksRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListKanjianTasksResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListServiceRecordHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListServiceRecordRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListServiceRecordResponse;
@@ -100,6 +127,12 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ListTeamResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ManageTeamMemberHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ManageTeamMemberRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\ManageTeamMemberResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordAnalysisHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordAnalysisRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordAnalysisResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordProcessHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordProcessRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\PageKanjianRecordProcessResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryAsrTaskHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryAsrTaskRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryAsrTaskResponse;
@@ -133,6 +166,12 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryUserBindDeviceLocationShrinkR
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryUserDeviceLocationHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryUserDeviceLocationRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\QueryUserDeviceLocationResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StartKanjianRecordingHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StartKanjianRecordingRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StartKanjianRecordingResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StopKanjianRecordingHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StopKanjianRecordingRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\StopKanjianRecordingResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\SubmitAgentTaskHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\SubmitAgentTaskRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\SubmitAgentTaskResponse;
@@ -146,6 +185,9 @@ use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\SubmitCustomerSplitDataShrinkReque
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateDeviceBindingHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateDeviceBindingRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateDeviceBindingResponse;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateKanjianTaskHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateKanjianTaskRequest;
+use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateKanjianTaskResponse;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateRecordingScheduleHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateRecordingScheduleRequest;
 use AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models\UpdateRecordingScheduleResponse;
@@ -359,6 +401,69 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary 看鉴记录首次绑定主任务
+     *  *
+     * @param BindKanjianRecordTaskRequest $request BindKanjianRecordTaskRequest
+     * @param BindKanjianRecordTaskHeaders $headers BindKanjianRecordTaskHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BindKanjianRecordTaskResponse BindKanjianRecordTaskResponse
+     */
+    public function bindKanjianRecordTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mainTaskId)) {
+            $body['mainTaskId'] = $request->mainTaskId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $body['recordId'] = $request->recordId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindKanjianRecordTask',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/records/task',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BindKanjianRecordTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 看鉴记录首次绑定主任务
+     *  *
+     * @param BindKanjianRecordTaskRequest $request BindKanjianRecordTaskRequest
+     *
+     * @return BindKanjianRecordTaskResponse BindKanjianRecordTaskResponse
+     */
+    public function bindKanjianRecordTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BindKanjianRecordTaskHeaders([]);
+
+        return $this->bindKanjianRecordTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 设备录音启停控制
      *  *
      * @param ControlRecordingRequest $request ControlRecordingRequest
@@ -488,6 +593,81 @@ class Dingtalk extends OpenApiClient
         $headers = new CreateAsrTranscriptionHeaders([]);
 
         return $this->createAsrTranscriptionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建看鉴任务
+     *  *
+     * @param CreateKanjianTaskRequest $request CreateKanjianTaskRequest
+     * @param CreateKanjianTaskHeaders $headers CreateKanjianTaskHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateKanjianTaskResponse CreateKanjianTaskResponse
+     */
+    public function createKanjianTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->adminUserIds)) {
+            $body['adminUserIds'] = $request->adminUserIds;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executorUserIds)) {
+            $body['executorUserIds'] = $request->executorUserIds;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->reportContent)) {
+            $body['reportContent'] = $request->reportContent;
+        }
+        if (!Utils::isUnset($request->subTasks)) {
+            $body['subTasks'] = $request->subTasks;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKanjianTask',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKanjianTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建看鉴任务
+     *  *
+     * @param CreateKanjianTaskRequest $request CreateKanjianTaskRequest
+     *
+     * @return CreateKanjianTaskResponse CreateKanjianTaskResponse
+     */
+    public function createKanjianTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateKanjianTaskHeaders([]);
+
+        return $this->createKanjianTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -623,6 +803,66 @@ class Dingtalk extends OpenApiClient
         $headers = new CreateTeamHeaders([]);
 
         return $this->createTeamWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除看鉴任务
+     *  *
+     * @param DeleteKanjianTaskRequest $request DeleteKanjianTaskRequest
+     * @param DeleteKanjianTaskHeaders $headers DeleteKanjianTaskHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteKanjianTaskResponse DeleteKanjianTaskResponse
+     */
+    public function deleteKanjianTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $query['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKanjianTask',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/tasks',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKanjianTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除看鉴任务
+     *  *
+     * @param DeleteKanjianTaskRequest $request DeleteKanjianTaskRequest
+     *
+     * @return DeleteKanjianTaskResponse DeleteKanjianTaskResponse
+     */
+    public function deleteKanjianTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteKanjianTaskHeaders([]);
+
+        return $this->deleteKanjianTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1085,6 +1325,177 @@ class Dingtalk extends OpenApiClient
         $headers = new GetCustomerInsightHeaders([]);
 
         return $this->getCustomerInsightWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询企业看鉴 BV 设备详情
+     *  *
+     * @param GetKanjianDeviceRequest $request GetKanjianDeviceRequest
+     * @param GetKanjianDeviceHeaders $headers GetKanjianDeviceHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKanjianDeviceResponse GetKanjianDeviceResponse
+     */
+    public function getKanjianDeviceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceSn)) {
+            $query['deviceSn'] = $request->deviceSn;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKanjianDevice',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/devices/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKanjianDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询企业看鉴 BV 设备详情
+     *  *
+     * @param GetKanjianDeviceRequest $request GetKanjianDeviceRequest
+     *
+     * @return GetKanjianDeviceResponse GetKanjianDeviceResponse
+     */
+    public function getKanjianDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetKanjianDeviceHeaders([]);
+
+        return $this->getKanjianDeviceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询看鉴记录详情
+     *  *
+     * @param GetKanjianRecordRequest $request GetKanjianRecordRequest
+     * @param GetKanjianRecordHeaders $headers GetKanjianRecordHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKanjianRecordResponse GetKanjianRecordResponse
+     */
+    public function getKanjianRecordWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['recordId'] = $request->recordId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKanjianRecord',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/records/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKanjianRecordResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询看鉴记录详情
+     *  *
+     * @param GetKanjianRecordRequest $request GetKanjianRecordRequest
+     *
+     * @return GetKanjianRecordResponse GetKanjianRecordResponse
+     */
+    public function getKanjianRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetKanjianRecordHeaders([]);
+
+        return $this->getKanjianRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询看鉴主任务详情及子任务列表
+     *  *
+     * @param GetKanjianTaskRequest $request GetKanjianTaskRequest
+     * @param GetKanjianTaskHeaders $headers GetKanjianTaskHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKanjianTaskResponse GetKanjianTaskResponse
+     */
+    public function getKanjianTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKanjianTask',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/tasks/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKanjianTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询看鉴主任务详情及子任务列表
+     *  *
+     * @param GetKanjianTaskRequest $request GetKanjianTaskRequest
+     *
+     * @return GetKanjianTaskResponse GetKanjianTaskResponse
+     */
+    public function getKanjianTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetKanjianTaskHeaders([]);
+
+        return $this->getKanjianTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1910,6 +2321,201 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary 分页查询看鉴 BV 设备列表
+     *  *
+     * @param ListKanjianDevicesRequest $request ListKanjianDevicesRequest
+     * @param ListKanjianDevicesHeaders $headers ListKanjianDevicesHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListKanjianDevicesResponse ListKanjianDevicesResponse
+     */
+    public function listKanjianDevicesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKanjianDevices',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/devices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKanjianDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询看鉴 BV 设备列表
+     *  *
+     * @param ListKanjianDevicesRequest $request ListKanjianDevicesRequest
+     *
+     * @return ListKanjianDevicesResponse ListKanjianDevicesResponse
+     */
+    public function listKanjianDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListKanjianDevicesHeaders([]);
+
+        return $this->listKanjianDevicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分页查询看鉴记录列表
+     *  *
+     * @param ListKanjianRecordsRequest $request ListKanjianRecordsRequest
+     * @param ListKanjianRecordsHeaders $headers ListKanjianRecordsHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListKanjianRecordsResponse ListKanjianRecordsResponse
+     */
+    public function listKanjianRecordsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->deviceSn)) {
+            $query['deviceSn'] = $request->deviceSn;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->mainTaskId)) {
+            $query['mainTaskId'] = $request->mainTaskId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $query['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKanjianRecords',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/records',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKanjianRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询看鉴记录列表
+     *  *
+     * @param ListKanjianRecordsRequest $request ListKanjianRecordsRequest
+     *
+     * @return ListKanjianRecordsResponse ListKanjianRecordsResponse
+     */
+    public function listKanjianRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListKanjianRecordsHeaders([]);
+
+        return $this->listKanjianRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分页查询看鉴任务列表
+     *  *
+     * @param ListKanjianTasksRequest $request ListKanjianTasksRequest
+     * @param ListKanjianTasksHeaders $headers ListKanjianTasksHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListKanjianTasksResponse ListKanjianTasksResponse
+     */
+    public function listKanjianTasksWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKanjianTasks',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKanjianTasksResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询看鉴任务列表
+     *  *
+     * @param ListKanjianTasksRequest $request ListKanjianTasksRequest
+     *
+     * @return ListKanjianTasksResponse ListKanjianTasksResponse
+     */
+    public function listKanjianTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListKanjianTasksHeaders([]);
+
+        return $this->listKanjianTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 分页查询服务记录
      *  *
      * @param ListServiceRecordRequest $request ListServiceRecordRequest
@@ -2162,6 +2768,132 @@ class Dingtalk extends OpenApiClient
         $headers = new ManageTeamMemberHeaders([]);
 
         return $this->manageTeamMemberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分页拉取看鉴记录的关键识别结果
+     *  *
+     * @param PageKanjianRecordAnalysisRequest $request PageKanjianRecordAnalysisRequest
+     * @param PageKanjianRecordAnalysisHeaders $headers PageKanjianRecordAnalysisHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PageKanjianRecordAnalysisResponse PageKanjianRecordAnalysisResponse
+     */
+    public function pageKanjianRecordAnalysisWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['recordId'] = $request->recordId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PageKanjianRecordAnalysis',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/records/analysis',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return PageKanjianRecordAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页拉取看鉴记录的关键识别结果
+     *  *
+     * @param PageKanjianRecordAnalysisRequest $request PageKanjianRecordAnalysisRequest
+     *
+     * @return PageKanjianRecordAnalysisResponse PageKanjianRecordAnalysisResponse
+     */
+    public function pageKanjianRecordAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PageKanjianRecordAnalysisHeaders([]);
+
+        return $this->pageKanjianRecordAnalysisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分页拉取看鉴记录的过程记录结果
+     *  *
+     * @param PageKanjianRecordProcessRequest $request PageKanjianRecordProcessRequest
+     * @param PageKanjianRecordProcessHeaders $headers PageKanjianRecordProcessHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PageKanjianRecordProcessResponse PageKanjianRecordProcessResponse
+     */
+    public function pageKanjianRecordProcessWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['recordId'] = $request->recordId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PageKanjianRecordProcess',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/records/process',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return PageKanjianRecordProcessResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页拉取看鉴记录的过程记录结果
+     *  *
+     * @param PageKanjianRecordProcessRequest $request PageKanjianRecordProcessRequest
+     *
+     * @return PageKanjianRecordProcessResponse PageKanjianRecordProcessResponse
+     */
+    public function pageKanjianRecordProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PageKanjianRecordProcessHeaders([]);
+
+        return $this->pageKanjianRecordProcessWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2807,6 +3539,132 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary BV 设备开始录制
+     *  *
+     * @param StartKanjianRecordingRequest $request StartKanjianRecordingRequest
+     * @param StartKanjianRecordingHeaders $headers StartKanjianRecordingHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartKanjianRecordingResponse StartKanjianRecordingResponse
+     */
+    public function startKanjianRecordingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceSn)) {
+            $body['deviceSn'] = $request->deviceSn;
+        }
+        if (!Utils::isUnset($request->mainTaskId)) {
+            $body['mainTaskId'] = $request->mainTaskId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartKanjianRecording',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/recordings/start',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return StartKanjianRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary BV 设备开始录制
+     *  *
+     * @param StartKanjianRecordingRequest $request StartKanjianRecordingRequest
+     *
+     * @return StartKanjianRecordingResponse StartKanjianRecordingResponse
+     */
+    public function startKanjianRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StartKanjianRecordingHeaders([]);
+
+        return $this->startKanjianRecordingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary BV 设备结束录制
+     *  *
+     * @param StopKanjianRecordingRequest $request StopKanjianRecordingRequest
+     * @param StopKanjianRecordingHeaders $headers StopKanjianRecordingHeaders
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopKanjianRecordingResponse StopKanjianRecordingResponse
+     */
+    public function stopKanjianRecordingWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopKanjianRecording',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/recordings/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return StopKanjianRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary BV 设备结束录制
+     *  *
+     * @param StopKanjianRecordingRequest $request StopKanjianRecordingRequest
+     *
+     * @return StopKanjianRecordingResponse StopKanjianRecordingResponse
+     */
+    public function stopKanjianRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StopKanjianRecordingHeaders([]);
+
+        return $this->stopKanjianRecordingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 提交agent异步任务
      *  *
      * @param SubmitAgentTaskRequest $request SubmitAgentTaskRequest
@@ -3076,6 +3934,84 @@ class Dingtalk extends OpenApiClient
         $headers = new UpdateDeviceBindingHeaders([]);
 
         return $this->updateDeviceBindingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新看鉴主任务
+     *  *
+     * @param UpdateKanjianTaskRequest $request UpdateKanjianTaskRequest
+     * @param UpdateKanjianTaskHeaders $headers UpdateKanjianTaskHeaders
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateKanjianTaskResponse UpdateKanjianTaskResponse
+     */
+    public function updateKanjianTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->adminUserIds)) {
+            $body['adminUserIds'] = $request->adminUserIds;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executorUserIds)) {
+            $body['executorUserIds'] = $request->executorUserIds;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['operatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->reportContent)) {
+            $body['reportContent'] = $request->reportContent;
+        }
+        if (!Utils::isUnset($request->subTasks)) {
+            $body['subTasks'] = $request->subTasks;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKanjianTask',
+            'version' => 'dvi_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/dvi/bv/kanjian/tasks',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKanjianTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新看鉴主任务
+     *  *
+     * @param UpdateKanjianTaskRequest $request UpdateKanjianTaskRequest
+     *
+     * @return UpdateKanjianTaskResponse UpdateKanjianTaskResponse
+     */
+    public function updateKanjianTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateKanjianTaskHeaders([]);
+
+        return $this->updateKanjianTaskWithOptions($request, $headers, $runtime);
     }
 
     /**

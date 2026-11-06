@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ApproveProcessCallbackRespon
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BanOrOpenGroupWordsHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BanOrOpenGroupWordsRequest;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BanOrOpenGroupWordsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BatchChangePrivateStorageOpenAppsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BatchChangePrivateStorageOpenAppsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BatchChangePrivateStorageOpenAppsResponse;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BusinessEventUpdateHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BusinessEventUpdateRequest;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\BusinessEventUpdateResponse;
@@ -273,6 +276,9 @@ use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListMiniAppHistoryVersionReq
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListMiniAppHistoryVersionResponse;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPartnerRolesHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPartnerRolesResponse;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPrivateStorageOpenAppsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPrivateStorageOpenAppsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPrivateStorageOpenAppsResponse;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPunchScheduleByConditionWithPagingHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPunchScheduleByConditionWithPagingRequest;
 use AlibabaCloud\SDK\Dingtalk\Vexclusive_1_0\Models\ListPunchScheduleByConditionWithPagingResponse;
@@ -728,6 +734,66 @@ class Dingtalk extends OpenApiClient
         $headers = new BanOrOpenGroupWordsHeaders([]);
 
         return $this->banOrOpenGroupWordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量配置企业专属存储开放应用
+     *  *
+     * @param BatchChangePrivateStorageOpenAppsRequest $request BatchChangePrivateStorageOpenAppsRequest
+     * @param BatchChangePrivateStorageOpenAppsHeaders $headers BatchChangePrivateStorageOpenAppsHeaders
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchChangePrivateStorageOpenAppsResponse BatchChangePrivateStorageOpenAppsResponse
+     */
+    public function batchChangePrivateStorageOpenAppsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deleteClientIds)) {
+            $body['deleteClientIds'] = $request->deleteClientIds;
+        }
+        if (!Utils::isUnset($request->saveClientIds)) {
+            $body['saveClientIds'] = $request->saveClientIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchChangePrivateStorageOpenApps',
+            'version' => 'exclusive_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/exclusive/privateStores/openApps/batchChange',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchChangePrivateStorageOpenAppsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量配置企业专属存储开放应用
+     *  *
+     * @param BatchChangePrivateStorageOpenAppsRequest $request BatchChangePrivateStorageOpenAppsRequest
+     *
+     * @return BatchChangePrivateStorageOpenAppsResponse BatchChangePrivateStorageOpenAppsResponse
+     */
+    public function batchChangePrivateStorageOpenApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchChangePrivateStorageOpenAppsHeaders([]);
+
+        return $this->batchChangePrivateStorageOpenAppsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6278,6 +6344,66 @@ class Dingtalk extends OpenApiClient
         $headers = new ListPartnerRolesHeaders([]);
 
         return $this->listPartnerRolesWithOptions($parentId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 分页查询企业专属存储开放应用配置
+     *  *
+     * @param ListPrivateStorageOpenAppsRequest $request ListPrivateStorageOpenAppsRequest
+     * @param ListPrivateStorageOpenAppsHeaders $headers ListPrivateStorageOpenAppsHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPrivateStorageOpenAppsResponse ListPrivateStorageOpenAppsResponse
+     */
+    public function listPrivateStorageOpenAppsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrivateStorageOpenApps',
+            'version' => 'exclusive_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/exclusive/privateStores/openApps/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrivateStorageOpenAppsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询企业专属存储开放应用配置
+     *  *
+     * @param ListPrivateStorageOpenAppsRequest $request ListPrivateStorageOpenAppsRequest
+     *
+     * @return ListPrivateStorageOpenAppsResponse ListPrivateStorageOpenAppsResponse
+     */
+    public function listPrivateStorageOpenApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListPrivateStorageOpenAppsHeaders([]);
+
+        return $this->listPrivateStorageOpenAppsWithOptions($request, $headers, $runtime);
     }
 
     /**

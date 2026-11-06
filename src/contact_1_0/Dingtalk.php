@@ -20,13 +20,37 @@ use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\AddOrgAccountOwnnessResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\AnnualCertificationAuditHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\AnnualCertificationAuditRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\AnnualCertificationAuditResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchAddActingManagerRelationsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchAddActingManagerRelationsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchAddActingManagerRelationsResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchApproveUnionApplyHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchApproveUnionApplyRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchApproveUnionApplyResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchDelActingManagerRelationsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchDelActingManagerRelationsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchDelActingManagerRelationsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetActingManagerRelationsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetActingManagerRelationsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetActingManagerRelationsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetCustomReportLinesHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetCustomReportLinesRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetCustomReportLinesResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetUserHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetUserRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetUserResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetUserShrinkRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetVOrgVisibleConfigsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetVOrgVisibleConfigsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchGetVOrgVisibleConfigsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetActingManagerRelationVOrgsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetActingManagerRelationVOrgsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetActingManagerRelationVOrgsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetCustomReportLinesHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetCustomReportLinesRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetCustomReportLinesResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetVOrgVisibleConfigsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetVOrgVisibleConfigsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchSetVOrgVisibleConfigsResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchUpdateExternalTitleHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchUpdateExternalTitleRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\BatchUpdateExternalTitleResponse;
@@ -163,6 +187,9 @@ use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListOwnedOrgByStaffIdResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSeniorSettingsHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSeniorSettingsRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSeniorSettingsResponse;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSimpleByRoleBatchHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSimpleByRoleBatchRequest;
+use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListSimpleByRoleBatchResponse;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListUserGroupMembersHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListUserGroupMembersRequest;
 use AlibabaCloud\SDK\Dingtalk\Vcontact_1_0\Models\ListUserGroupMembersResponse;
@@ -770,6 +797,63 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary 批量添加虚线归属关系
+     *  *
+     * @param BatchAddActingManagerRelationsRequest $request BatchAddActingManagerRelationsRequest
+     * @param BatchAddActingManagerRelationsHeaders $headers BatchAddActingManagerRelationsHeaders
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchAddActingManagerRelationsResponse BatchAddActingManagerRelationsResponse
+     */
+    public function batchAddActingManagerRelationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->items)) {
+            $body['items'] = $request->items;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchAddActingManagerRelations',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchAddActingManagerRelations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchAddActingManagerRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量添加虚线归属关系
+     *  *
+     * @param BatchAddActingManagerRelationsRequest $request BatchAddActingManagerRelationsRequest
+     *
+     * @return BatchAddActingManagerRelationsResponse BatchAddActingManagerRelationsResponse
+     */
+    public function batchAddActingManagerRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchAddActingManagerRelationsHeaders([]);
+
+        return $this->batchAddActingManagerRelationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 批量同意(合作空间/集团)的关联申请
      *  *
      * @param BatchApproveUnionApplyRequest $request BatchApproveUnionApplyRequest
@@ -820,6 +904,177 @@ class Dingtalk extends OpenApiClient
         $headers = new BatchApproveUnionApplyHeaders([]);
 
         return $this->batchApproveUnionApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量删除虚线归属关系
+     *  *
+     * @param BatchDelActingManagerRelationsRequest $request BatchDelActingManagerRelationsRequest
+     * @param BatchDelActingManagerRelationsHeaders $headers BatchDelActingManagerRelationsHeaders
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchDelActingManagerRelationsResponse BatchDelActingManagerRelationsResponse
+     */
+    public function batchDelActingManagerRelationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->items)) {
+            $body['items'] = $request->items;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDelActingManagerRelations',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchDelActingManagerRelations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDelActingManagerRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除虚线归属关系
+     *  *
+     * @param BatchDelActingManagerRelationsRequest $request BatchDelActingManagerRelationsRequest
+     *
+     * @return BatchDelActingManagerRelationsResponse BatchDelActingManagerRelationsResponse
+     */
+    public function batchDelActingManagerRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchDelActingManagerRelationsHeaders([]);
+
+        return $this->batchDelActingManagerRelationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询虚线归属关系（含vOrg数据）
+     *  *
+     * @param BatchGetActingManagerRelationsRequest $request BatchGetActingManagerRelationsRequest
+     * @param BatchGetActingManagerRelationsHeaders $headers BatchGetActingManagerRelationsHeaders
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchGetActingManagerRelationsResponse BatchGetActingManagerRelationsResponse
+     */
+    public function batchGetActingManagerRelationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->staffIds)) {
+            $body['staffIds'] = $request->staffIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetActingManagerRelations',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchGetActingManagerRelations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetActingManagerRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询虚线归属关系（含vOrg数据）
+     *  *
+     * @param BatchGetActingManagerRelationsRequest $request BatchGetActingManagerRelationsRequest
+     *
+     * @return BatchGetActingManagerRelationsResponse BatchGetActingManagerRelationsResponse
+     */
+    public function batchGetActingManagerRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchGetActingManagerRelationsHeaders([]);
+
+        return $this->batchGetActingManagerRelationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询自定义汇报线
+     *  *
+     * @param BatchGetCustomReportLinesRequest $request BatchGetCustomReportLinesRequest
+     * @param BatchGetCustomReportLinesHeaders $headers BatchGetCustomReportLinesHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchGetCustomReportLinesResponse BatchGetCustomReportLinesResponse
+     */
+    public function batchGetCustomReportLinesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->staffIds)) {
+            $body['staffIds'] = $request->staffIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetCustomReportLines',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchGetCustomReportLines',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetCustomReportLinesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询自定义汇报线
+     *  *
+     * @param BatchGetCustomReportLinesRequest $request BatchGetCustomReportLinesRequest
+     *
+     * @return BatchGetCustomReportLinesResponse BatchGetCustomReportLinesResponse
+     */
+    public function batchGetCustomReportLines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchGetCustomReportLinesHeaders([]);
+
+        return $this->batchGetCustomReportLinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -885,6 +1140,234 @@ class Dingtalk extends OpenApiClient
         $headers = new BatchGetUserHeaders([]);
 
         return $this->batchGetUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询vOrg可见性白名单
+     *  *
+     * @param BatchGetVOrgVisibleConfigsRequest $request BatchGetVOrgVisibleConfigsRequest
+     * @param BatchGetVOrgVisibleConfigsHeaders $headers BatchGetVOrgVisibleConfigsHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchGetVOrgVisibleConfigsResponse BatchGetVOrgVisibleConfigsResponse
+     */
+    public function batchGetVOrgVisibleConfigsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->staffIds)) {
+            $body['staffIds'] = $request->staffIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetVOrgVisibleConfigs',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchGetVOrgVisibleConfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetVOrgVisibleConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询vOrg可见性白名单
+     *  *
+     * @param BatchGetVOrgVisibleConfigsRequest $request BatchGetVOrgVisibleConfigsRequest
+     *
+     * @return BatchGetVOrgVisibleConfigsResponse BatchGetVOrgVisibleConfigsResponse
+     */
+    public function batchGetVOrgVisibleConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchGetVOrgVisibleConfigsHeaders([]);
+
+        return $this->batchGetVOrgVisibleConfigsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量设置虚线归属关系vOrg数据
+     *  *
+     * @param BatchSetActingManagerRelationVOrgsRequest $request BatchSetActingManagerRelationVOrgsRequest
+     * @param BatchSetActingManagerRelationVOrgsHeaders $headers BatchSetActingManagerRelationVOrgsHeaders
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchSetActingManagerRelationVOrgsResponse BatchSetActingManagerRelationVOrgsResponse
+     */
+    public function batchSetActingManagerRelationVOrgsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->items)) {
+            $body['items'] = $request->items;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchSetActingManagerRelationVOrgs',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchSetActingManagerRelationVOrgs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchSetActingManagerRelationVOrgsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量设置虚线归属关系vOrg数据
+     *  *
+     * @param BatchSetActingManagerRelationVOrgsRequest $request BatchSetActingManagerRelationVOrgsRequest
+     *
+     * @return BatchSetActingManagerRelationVOrgsResponse BatchSetActingManagerRelationVOrgsResponse
+     */
+    public function batchSetActingManagerRelationVOrgs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchSetActingManagerRelationVOrgsHeaders([]);
+
+        return $this->batchSetActingManagerRelationVOrgsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量设置自定义汇报线
+     *  *
+     * @param BatchSetCustomReportLinesRequest $request BatchSetCustomReportLinesRequest
+     * @param BatchSetCustomReportLinesHeaders $headers BatchSetCustomReportLinesHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchSetCustomReportLinesResponse BatchSetCustomReportLinesResponse
+     */
+    public function batchSetCustomReportLinesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->items)) {
+            $body['items'] = $request->items;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchSetCustomReportLines',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchSetCustomReportLines',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchSetCustomReportLinesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量设置自定义汇报线
+     *  *
+     * @param BatchSetCustomReportLinesRequest $request BatchSetCustomReportLinesRequest
+     *
+     * @return BatchSetCustomReportLinesResponse BatchSetCustomReportLinesResponse
+     */
+    public function batchSetCustomReportLines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchSetCustomReportLinesHeaders([]);
+
+        return $this->batchSetCustomReportLinesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量设置vOrg可见性白名单
+     *  *
+     * @param BatchSetVOrgVisibleConfigsRequest $request BatchSetVOrgVisibleConfigsRequest
+     * @param BatchSetVOrgVisibleConfigsHeaders $headers BatchSetVOrgVisibleConfigsHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchSetVOrgVisibleConfigsResponse BatchSetVOrgVisibleConfigsResponse
+     */
+    public function batchSetVOrgVisibleConfigsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->items)) {
+            $body['items'] = $request->items;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchSetVOrgVisibleConfigs',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/empRelation/batchSetVOrgVisibleConfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchSetVOrgVisibleConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量设置vOrg可见性白名单
+     *  *
+     * @param BatchSetVOrgVisibleConfigsRequest $request BatchSetVOrgVisibleConfigsRequest
+     *
+     * @return BatchSetVOrgVisibleConfigsResponse BatchSetVOrgVisibleConfigsResponse
+     */
+    public function batchSetVOrgVisibleConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchSetVOrgVisibleConfigsHeaders([]);
+
+        return $this->batchSetVOrgVisibleConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3807,6 +4290,72 @@ class Dingtalk extends OpenApiClient
         $headers = new ListSeniorSettingsHeaders([]);
 
         return $this->listSeniorSettingsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取批量角色下的员工列表
+     *  *
+     * @param ListSimpleByRoleBatchRequest $request ListSimpleByRoleBatchRequest
+     * @param ListSimpleByRoleBatchHeaders $headers ListSimpleByRoleBatchHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSimpleByRoleBatchResponse ListSimpleByRoleBatchResponse
+     */
+    public function listSimpleByRoleBatchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->offset)) {
+            $body['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->permissionCode)) {
+            $body['permissionCode'] = $request->permissionCode;
+        }
+        if (!Utils::isUnset($request->roleIds)) {
+            $body['roleIds'] = $request->roleIds;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['size'] = $request->size;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSimpleByRoleBatch',
+            'version' => 'contact_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/contact/role/listEmpsByRoles',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSimpleByRoleBatchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取批量角色下的员工列表
+     *  *
+     * @param ListSimpleByRoleBatchRequest $request ListSimpleByRoleBatchRequest
+     *
+     * @return ListSimpleByRoleBatchResponse ListSimpleByRoleBatchResponse
+     */
+    public function listSimpleByRoleBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListSimpleByRoleBatchHeaders([]);
+
+        return $this->listSimpleByRoleBatchWithOptions($request, $headers, $runtime);
     }
 
     /**

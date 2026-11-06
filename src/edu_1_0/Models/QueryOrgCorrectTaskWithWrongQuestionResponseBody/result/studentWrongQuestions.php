@@ -25,6 +25,11 @@ class studentWrongQuestions extends Model
     public $studentName;
 
     /**
+     * @var string
+     */
+    public $studentNoOcr;
+
+    /**
      * @var wrongQuestionRecords[]
      */
     public $wrongQuestionRecords;
@@ -32,6 +37,7 @@ class studentWrongQuestions extends Model
         'assignmentPicUrlList' => 'assignmentPicUrlList',
         'studentId' => 'studentId',
         'studentName' => 'studentName',
+        'studentNoOcr' => 'studentNoOcr',
         'wrongQuestionRecords' => 'wrongQuestionRecords',
     ];
 
@@ -48,6 +54,9 @@ class studentWrongQuestions extends Model
         }
         if (null !== $this->studentName) {
             $res['studentName'] = $this->studentName;
+        }
+        if (null !== $this->studentNoOcr) {
+            $res['studentNoOcr'] = $this->studentNoOcr;
         }
         if (null !== $this->wrongQuestionRecords) {
             $res['wrongQuestionRecords'] = [];
@@ -80,6 +89,9 @@ class studentWrongQuestions extends Model
         }
         if (isset($map['studentName'])) {
             $model->studentName = $map['studentName'];
+        }
+        if (isset($map['studentNoOcr'])) {
+            $model->studentNoOcr = $map['studentNoOcr'];
         }
         if (isset($map['wrongQuestionRecords'])) {
             if (!empty($map['wrongQuestionRecords'])) {

@@ -62,6 +62,20 @@ class CreateMinutesByUploadFileRequest extends Model
     public $mediaType;
 
     /**
+     * @example visual-summary
+     *
+     * @var string
+     */
+    public $summaryTemplateId;
+
+    /**
+     * @example 0
+     *
+     * @var string
+     */
+    public $summaryTemplateType;
+
+    /**
      * @description This parameter is required.
      *
      * @example 11-20 录音
@@ -86,6 +100,8 @@ class CreateMinutesByUploadFileRequest extends Model
         'hiddenMinutes' => 'hiddenMinutes',
         'mediaFileUrl' => 'mediaFileUrl',
         'mediaType' => 'mediaType',
+        'summaryTemplateId' => 'summaryTemplateId',
+        'summaryTemplateType' => 'summaryTemplateType',
         'title' => 'title',
         'unionId' => 'unionId',
     ];
@@ -115,6 +131,12 @@ class CreateMinutesByUploadFileRequest extends Model
         }
         if (null !== $this->mediaType) {
             $res['mediaType'] = $this->mediaType;
+        }
+        if (null !== $this->summaryTemplateId) {
+            $res['summaryTemplateId'] = $this->summaryTemplateId;
+        }
+        if (null !== $this->summaryTemplateType) {
+            $res['summaryTemplateType'] = $this->summaryTemplateType;
         }
         if (null !== $this->title) {
             $res['title'] = $this->title;
@@ -154,6 +176,12 @@ class CreateMinutesByUploadFileRequest extends Model
         }
         if (isset($map['mediaType'])) {
             $model->mediaType = $map['mediaType'];
+        }
+        if (isset($map['summaryTemplateId'])) {
+            $model->summaryTemplateId = $map['summaryTemplateId'];
+        }
+        if (isset($map['summaryTemplateType'])) {
+            $model->summaryTemplateType = $map['summaryTemplateType'];
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];

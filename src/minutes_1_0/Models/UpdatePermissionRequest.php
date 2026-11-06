@@ -29,6 +29,11 @@ class UpdatePermissionRequest extends Model
     public $opType;
 
     /**
+     * @var string
+     */
+    public $resetMode;
+
+    /**
      * @example 1000
      *
      * @var string
@@ -64,6 +69,7 @@ class UpdatePermissionRequest extends Model
         'memberInfoList' => 'memberInfoList',
         'memberPermissionOperations' => 'memberPermissionOperations',
         'opType' => 'opType',
+        'resetMode' => 'resetMode',
         'roleCode' => 'roleCode',
         'roleSubResourceIds' => 'roleSubResourceIds',
         'shareScope' => 'shareScope',
@@ -96,6 +102,9 @@ class UpdatePermissionRequest extends Model
         }
         if (null !== $this->opType) {
             $res['opType'] = $this->opType;
+        }
+        if (null !== $this->resetMode) {
+            $res['resetMode'] = $this->resetMode;
         }
         if (null !== $this->roleCode) {
             $res['roleCode'] = $this->roleCode;
@@ -144,6 +153,9 @@ class UpdatePermissionRequest extends Model
         }
         if (isset($map['opType'])) {
             $model->opType = $map['opType'];
+        }
+        if (isset($map['resetMode'])) {
+            $model->resetMode = $map['resetMode'];
         }
         if (isset($map['roleCode'])) {
             $model->roleCode = $map['roleCode'];

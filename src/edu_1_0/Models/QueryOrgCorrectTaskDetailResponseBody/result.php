@@ -29,6 +29,11 @@ class result extends Model
     public $className;
 
     /**
+     * @var string[]
+     */
+    public $extraFields;
+
+    /**
      * @var int
      */
     public $gradeLevel;
@@ -92,6 +97,7 @@ class result extends Model
         'aiMarkTime' => 'aiMarkTime',
         'aiModel' => 'aiModel',
         'className' => 'className',
+        'extraFields' => 'extraFields',
         'gradeLevel' => 'gradeLevel',
         'gradeName' => 'gradeName',
         'periodCode' => 'periodCode',
@@ -122,6 +128,9 @@ class result extends Model
         }
         if (null !== $this->className) {
             $res['className'] = $this->className;
+        }
+        if (null !== $this->extraFields) {
+            $res['extraFields'] = $this->extraFields;
         }
         if (null !== $this->gradeLevel) {
             $res['gradeLevel'] = $this->gradeLevel;
@@ -182,6 +191,9 @@ class result extends Model
         }
         if (isset($map['className'])) {
             $model->className = $map['className'];
+        }
+        if (isset($map['extraFields'])) {
+            $model->extraFields = $map['extraFields'];
         }
         if (isset($map['gradeLevel'])) {
             $model->gradeLevel = $map['gradeLevel'];

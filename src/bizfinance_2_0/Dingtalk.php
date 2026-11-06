@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryOrgInvoiceUrlResp
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentRecallFileHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentRecallFileRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentRecallFileResponse;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentStatusForLinkHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentStatusForLinkRequest;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchQueryPaymentStatusForLinkResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchSyncBankReceiptHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchSyncBankReceiptRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\BatchSyncBankReceiptResponse;
@@ -38,6 +41,9 @@ use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CheckVoucherStatusResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\ConfirmPaymentOrderHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\ConfirmPaymentOrderRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\ConfirmPaymentOrderResponse;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateBatchPaymentWaitPayOrderHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateBatchPaymentWaitPayOrderRequest;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateBatchPaymentWaitPayOrderResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateCollectionOrderHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateCollectionOrderRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\CreateCollectionOrderResponse;
@@ -145,6 +151,10 @@ use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryInvoiceTransferDataHea
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryInvoiceTransferDataRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryInvoiceTransferDataResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryInvoiceTransferDataShrinkRequest;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitClientIdHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitClientIdRequest;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitClientIdResponse;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitClientIdShrinkRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\QueryPaymentBenefitResponse;
@@ -195,6 +205,9 @@ use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\SyncReceiptRecallResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateAuxiliaryStatusHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateAuxiliaryStatusRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateAuxiliaryStatusResponse;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateCurrencyRateHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateCurrencyRateRequest;
+use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateCurrencyRateResponse;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateFinanceEnterpriseAccountHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateFinanceEnterpriseAccountRequest;
 use AlibabaCloud\SDK\Dingtalk\Vbizfinance_2_0\Models\UpdateFinanceEnterpriseAccountResponse;
@@ -694,6 +707,69 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary 批量支付单据状态查询
+     *  *
+     * @param BatchQueryPaymentStatusForLinkRequest $request BatchQueryPaymentStatusForLinkRequest
+     * @param BatchQueryPaymentStatusForLinkHeaders $headers BatchQueryPaymentStatusForLinkHeaders
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchQueryPaymentStatusForLinkResponse BatchQueryPaymentStatusForLinkResponse
+     */
+    public function batchQueryPaymentStatusForLinkWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $query['corpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchQueryPaymentStatusForLink',
+            'version' => 'bizfinance_2.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v2.0/bizfinance/batchQueryPaymentStatus',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchQueryPaymentStatusForLinkResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量支付单据状态查询
+     *  *
+     * @param BatchQueryPaymentStatusForLinkRequest $request BatchQueryPaymentStatusForLinkRequest
+     *
+     * @return BatchQueryPaymentStatusForLinkResponse BatchQueryPaymentStatusForLinkResponse
+     */
+    public function batchQueryPaymentStatusForLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchQueryPaymentStatusForLinkHeaders([]);
+
+        return $this->batchQueryPaymentStatusForLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 批量同步银行回单
      *  *
      * @param BatchSyncBankReceiptRequest $request BatchSyncBankReceiptRequest
@@ -948,6 +1024,87 @@ class Dingtalk extends OpenApiClient
         $headers = new ConfirmPaymentOrderHeaders([]);
 
         return $this->confirmPaymentOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量创单对外开放接口
+     *  *
+     * @param CreateBatchPaymentWaitPayOrderRequest $request CreateBatchPaymentWaitPayOrderRequest
+     * @param CreateBatchPaymentWaitPayOrderHeaders $headers CreateBatchPaymentWaitPayOrderHeaders
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBatchPaymentWaitPayOrderResponse CreateBatchPaymentWaitPayOrderResponse
+     */
+    public function createBatchPaymentWaitPayOrderWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->orgId)) {
+            $body['orgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->outBizNo)) {
+            $body['outBizNo'] = $request->outBizNo;
+        }
+        if (!Utils::isUnset($request->payerAccountDTO)) {
+            $body['payerAccountDTO'] = $request->payerAccountDTO;
+        }
+        if (!Utils::isUnset($request->paymentDetailList)) {
+            $body['paymentDetailList'] = $request->paymentDetailList;
+        }
+        if (!Utils::isUnset($request->paymentOrderTitle)) {
+            $body['paymentOrderTitle'] = $request->paymentOrderTitle;
+        }
+        if (!Utils::isUnset($request->paymentUserId)) {
+            $body['paymentUserId'] = $request->paymentUserId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->usage)) {
+            $body['usage'] = $request->usage;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBatchPaymentWaitPayOrder',
+            'version' => 'bizfinance_2.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v2.0/bizfinance/createBatchPaymentOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBatchPaymentWaitPayOrderResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量创单对外开放接口
+     *  *
+     * @param CreateBatchPaymentWaitPayOrderRequest $request CreateBatchPaymentWaitPayOrderRequest
+     *
+     * @return CreateBatchPaymentWaitPayOrderResponse CreateBatchPaymentWaitPayOrderResponse
+     */
+    public function createBatchPaymentWaitPayOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateBatchPaymentWaitPayOrderHeaders([]);
+
+        return $this->createBatchPaymentWaitPayOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3240,6 +3397,68 @@ class Dingtalk extends OpenApiClient
     }
 
     /**
+     * @summary 支付笔数/主体权益查询
+     *  *
+     * @param QueryPaymentBenefitClientIdRequest $tmpReq  QueryPaymentBenefitClientIdRequest
+     * @param QueryPaymentBenefitClientIdHeaders $headers QueryPaymentBenefitClientIdHeaders
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryPaymentBenefitClientIdResponse QueryPaymentBenefitClientIdResponse
+     */
+    public function queryPaymentBenefitClientIdWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryPaymentBenefitClientIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->queryPaymentBenefitRequest)) {
+            $request->queryPaymentBenefitRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryPaymentBenefitRequest, 'queryPaymentBenefitRequest', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->queryPaymentBenefitRequestShrink)) {
+            $query['queryPaymentBenefitRequest'] = $request->queryPaymentBenefitRequestShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPaymentBenefitClientId',
+            'version' => 'bizfinance_2.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v2.0/bizfinance/query/benefit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPaymentBenefitClientIdResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 支付笔数/主体权益查询
+     *  *
+     * @param QueryPaymentBenefitClientIdRequest $request QueryPaymentBenefitClientIdRequest
+     *
+     * @return QueryPaymentBenefitClientIdResponse QueryPaymentBenefitClientIdResponse
+     */
+    public function queryPaymentBenefitClientId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryPaymentBenefitClientIdHeaders([]);
+
+        return $this->queryPaymentBenefitClientIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询智能财务支付订单信息
      *  *
      * @param QueryPaymentOrderDetailRequest $tmpReq  QueryPaymentOrderDetailRequest
@@ -4238,6 +4457,69 @@ class Dingtalk extends OpenApiClient
         $headers = new UpdateAuxiliaryStatusHeaders([]);
 
         return $this->updateAuxiliaryStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新币种税率
+     *  *
+     * @param UpdateCurrencyRateRequest $request UpdateCurrencyRateRequest
+     * @param UpdateCurrencyRateHeaders $headers UpdateCurrencyRateHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCurrencyRateResponse UpdateCurrencyRateResponse
+     */
+    public function updateCurrencyRateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->rate)) {
+            $query['rate'] = $request->rate;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCurrencyRate',
+            'version' => 'bizfinance_2.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v2.0/bizfinance/currency/updateRate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCurrencyRateResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新币种税率
+     *  *
+     * @param UpdateCurrencyRateRequest $request UpdateCurrencyRateRequest
+     *
+     * @return UpdateCurrencyRateResponse UpdateCurrencyRateResponse
+     */
+    public function updateCurrencyRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateCurrencyRateHeaders([]);
+
+        return $this->updateCurrencyRateWithOptions($request, $headers, $runtime);
     }
 
     /**

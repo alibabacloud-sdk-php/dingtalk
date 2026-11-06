@@ -62,6 +62,13 @@ class HrmProcessTerminationAndHandoverRequest extends Model
     public $lastWorkDate;
 
     /**
+     * @example user123
+     *
+     * @var string
+     */
+    public $minutesHandoverUserId;
+
+    /**
      * @description This parameter is required.
      *
      * @example 经理
@@ -103,6 +110,7 @@ class HrmProcessTerminationAndHandoverRequest extends Model
         'dismissionReason' => 'dismissionReason',
         'docNoteHandoverUserId' => 'docNoteHandoverUserId',
         'lastWorkDate' => 'lastWorkDate',
+        'minutesHandoverUserId' => 'minutesHandoverUserId',
         'optUserId' => 'optUserId',
         'permissionHandoverUserId' => 'permissionHandoverUserId',
         'terminationReasonPassive' => 'terminationReasonPassive',
@@ -135,6 +143,9 @@ class HrmProcessTerminationAndHandoverRequest extends Model
         }
         if (null !== $this->lastWorkDate) {
             $res['lastWorkDate'] = $this->lastWorkDate;
+        }
+        if (null !== $this->minutesHandoverUserId) {
+            $res['minutesHandoverUserId'] = $this->minutesHandoverUserId;
         }
         if (null !== $this->optUserId) {
             $res['optUserId'] = $this->optUserId;
@@ -183,6 +194,9 @@ class HrmProcessTerminationAndHandoverRequest extends Model
         }
         if (isset($map['lastWorkDate'])) {
             $model->lastWorkDate = $map['lastWorkDate'];
+        }
+        if (isset($map['minutesHandoverUserId'])) {
+            $model->minutesHandoverUserId = $map['minutesHandoverUserId'];
         }
         if (isset($map['optUserId'])) {
             $model->optUserId = $map['optUserId'];

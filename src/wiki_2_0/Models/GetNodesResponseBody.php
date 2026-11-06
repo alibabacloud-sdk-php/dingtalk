@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dingtalk\Vwiki_2_0\Models;
 
+use AlibabaCloud\SDK\Dingtalk\Vwiki_2_0\Models\GetNodesResponseBody\failedNodes;
 use AlibabaCloud\SDK\Dingtalk\Vwiki_2_0\Models\GetNodesResponseBody\nodes;
 use AlibabaCloud\Tea\Model;
 
 class GetNodesResponseBody extends Model
 {
     /**
+     * @var failedNodes[]
+     */
+    public $failedNodes;
+
+    /**
      * @var nodes[]
      */
     public $nodes;
     protected $_name = [
+        'failedNodes' => 'failedNodes',
         'nodes' => 'nodes',
     ];
 
@@ -22,6 +29,15 @@ class GetNodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failedNodes) {
+            $res['failedNodes'] = [];
+            if (null !== $this->failedNodes && \is_array($this->failedNodes)) {
+                $n = 0;
+                foreach ($this->failedNodes as $item) {
+                    $res['failedNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->nodes) {
             $res['nodes'] = [];
             if (null !== $this->nodes && \is_array($this->nodes)) {
@@ -43,6 +59,15 @@ class GetNodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['failedNodes'])) {
+            if (!empty($map['failedNodes'])) {
+                $model->failedNodes = [];
+                $n = 0;
+                foreach ($map['failedNodes'] as $item) {
+                    $model->failedNodes[$n++] = null !== $item ? failedNodes::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
                 $model->nodes = [];

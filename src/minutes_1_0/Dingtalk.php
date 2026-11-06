@@ -435,6 +435,12 @@ class Dingtalk extends OpenApiClient
         if (!Utils::isUnset($request->mediaType)) {
             $body['mediaType'] = $request->mediaType;
         }
+        if (!Utils::isUnset($request->summaryTemplateId)) {
+            $body['summaryTemplateId'] = $request->summaryTemplateId;
+        }
+        if (!Utils::isUnset($request->summaryTemplateType)) {
+            $body['summaryTemplateType'] = $request->summaryTemplateType;
+        }
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
         }
@@ -2579,6 +2585,9 @@ class Dingtalk extends OpenApiClient
         }
         if (!Utils::isUnset($request->opType)) {
             $body['opType'] = $request->opType;
+        }
+        if (!Utils::isUnset($request->resetMode)) {
+            $body['resetMode'] = $request->resetMode;
         }
         if (!Utils::isUnset($request->roleCode)) {
             $body['roleCode'] = $request->roleCode;

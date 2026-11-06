@@ -1,0 +1,65 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dingtalk\Vdvi_1_0\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class DeleteKanjianTaskRequest extends Model
+{
+    /**
+     * @description This parameter is required.
+     *
+     * @example manager1234
+     *
+     * @var string
+     */
+    public $operatorUserId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example task0001
+     *
+     * @var string
+     */
+    public $taskId;
+    protected $_name = [
+        'operatorUserId' => 'operatorUserId',
+        'taskId' => 'taskId',
+    ];
+
+    public function validate() {}
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->operatorUserId) {
+            $res['operatorUserId'] = $this->operatorUserId;
+        }
+        if (null !== $this->taskId) {
+            $res['taskId'] = $this->taskId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return DeleteKanjianTaskRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['operatorUserId'])) {
+            $model->operatorUserId = $map['operatorUserId'];
+        }
+        if (isset($map['taskId'])) {
+            $model->taskId = $map['taskId'];
+        }
+
+        return $model;
+    }
+}

@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\GetShanhuiByShanhuiKeyRes
 use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\GetTaskFromShanhuiDocHeaders;
 use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\GetTaskFromShanhuiDocRequest;
 use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\GetTaskFromShanhuiDocResponse;
+use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\ListUserMeetingsHeaders;
+use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\ListUserMeetingsRequest;
+use AlibabaCloud\SDK\Dingtalk\Vflashmeeting_1_0\Models\ListUserMeetingsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayDingTalk\Client;
@@ -478,5 +481,83 @@ class Dingtalk extends OpenApiClient
         $headers = new GetTaskFromShanhuiDocHeaders([]);
 
         return $this->getTaskFromShanhuiDocWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询指定用户的闪会或会议纪要列表
+     *  *
+     * @param ListUserMeetingsRequest $request ListUserMeetingsRequest
+     * @param ListUserMeetingsHeaders $headers ListUserMeetingsHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserMeetingsResponse ListUserMeetingsResponse
+     */
+    public function listUserMeetingsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeFrom)) {
+            $query['createTimeFrom'] = $request->createTimeFrom;
+        }
+        if (!Utils::isUnset($request->createTimeTo)) {
+            $query['createTimeTo'] = $request->createTimeTo;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->listType)) {
+            $query['listType'] = $request->listType;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['userId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsDingtalkAccessToken)) {
+            $realHeaders['x-acs-dingtalk-access-token'] = Utils::toJSONString($headers->xAcsDingtalkAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserMeetings',
+            'version' => 'flashmeeting_1.0',
+            'protocol' => 'HTTP',
+            'pathname' => '/v1.0/flashmeeting/meetings/listUserMeetings',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserMeetingsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定用户的闪会或会议纪要列表
+     *  *
+     * @param ListUserMeetingsRequest $request ListUserMeetingsRequest
+     *
+     * @return ListUserMeetingsResponse ListUserMeetingsResponse
+     */
+    public function listUserMeetings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListUserMeetingsHeaders([]);
+
+        return $this->listUserMeetingsWithOptions($request, $headers, $runtime);
     }
 }

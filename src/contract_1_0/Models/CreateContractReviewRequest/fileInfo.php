@@ -36,12 +36,18 @@ class fileInfo extends Model
      * @var string
      */
     public $spaceId;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'fileId' => 'fileId',
         'fileName' => 'fileName',
         'fileSize' => 'fileSize',
         'fileType' => 'fileType',
         'spaceId' => 'spaceId',
+        'url' => 'url',
     ];
 
     public function validate() {}
@@ -63,6 +69,9 @@ class fileInfo extends Model
         }
         if (null !== $this->spaceId) {
             $res['spaceId'] = $this->spaceId;
+        }
+        if (null !== $this->url) {
+            $res['url'] = $this->url;
         }
 
         return $res;
@@ -90,6 +99,9 @@ class fileInfo extends Model
         }
         if (isset($map['spaceId'])) {
             $model->spaceId = $map['spaceId'];
+        }
+        if (isset($map['url'])) {
+            $model->url = $map['url'];
         }
 
         return $model;
